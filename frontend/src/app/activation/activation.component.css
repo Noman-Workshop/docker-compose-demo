@@ -1,0 +1,15 @@
+.activationBody{
+    height: 75%;
+}
+.success{
+    text-align: center;
+    margin-top: 20%;
+    color: green;
+    font-weight: 600;
+}
+.failed{
+    text-align: center;
+    margin-top: 20%;
+    color: red;
+    font-weight: 600;
+}

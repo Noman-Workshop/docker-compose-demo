@@ -1,0 +1,68 @@
+# docker compose version 3.8 with one springboot backend service and one db
+version: '3.8'
+
+services:
+
+  frontend:
+    build: ./frontend
+    ports:
+      - 4200:4200
+    # depends_on:
+    #   - proxy
+    networks:
+      - tax-network
+    
+  backend:
+    build: ./backend
+    ports:
+      - 8080:8080
+    depends_on:
+      - db
+    networks:
+      - tax-network
+    # create min 2 instances of backend service
+    # deploy:
+    #   replicas: 3
+    
+  db:
+    build: ./db
+    container_name: tax-db
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=nbr@Tax123
+    ports:
+      - 1433:1433
+    volumes:
+      - vol-tax-storage:/var/opt/mssql
+    networks:
+      - tax-network
+  
+  # db:
+  #   image: mcr.microsoft.com/mssql/server:2019-latest
+  #   container_name: tax-db
+  #   environment:
+  #     - ACCEPT_EULA=Y
+  #     - MSSQL_SA_PASSWORD=nbr@Tax123
+  #   ports:
+  #     - 1433:1433
+  #   volumes:
+  #     - vol-tax-storage:/var/opt/mssql
+  #   networks:
+  #     - tax-network
+
+  # proxy:
+  #   image: nginx:alpine
+  #   ports:
+  #     - 80:80
+  #   volumes:
+  #     - ./proxy:/etc/nginx/conf.d
+  #   depends_on:
+  #     - backend
+  #   networks:
+  #     - tax-network
+    
+networks:
+  tax-network:
+
+volumes:
+  vol-tax-storage:

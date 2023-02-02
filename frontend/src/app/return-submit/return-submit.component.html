@@ -1,0 +1,218 @@
+<!-- <div class="login-container">
+
+  <div class="login-form">
+
+    <form class="example-form" [formGroup]="returnForm" #formDir="ngForm" (ngSubmit)="returnSubmit()">   
+      
+      
+      
+      <div class="holder">
+        <div class="wrapper">
+        <mat-form-field>
+          <mat-label>Select Assesment Year</mat-label>
+          <select name="assessmentYear"  formControlName="assessmentYear" matInput>
+            <option value="2022-2023">2022-2023</option>
+            <option value="2021-2022">2021-2022</option>
+            <option value="2020-2021">2021-2022</option>
+          </select>
+        </mat-form-field>
+      </div>
+      </div> 
+      
+      <div class="holder">
+        <div class="wrapper">
+            <mat-form-field>
+              <mat-label>TIN</mat-label>
+              <input
+              type="number"
+              name="tin"
+              formControlName="tin" 
+              matInput
+              />
+            </mat-form-field>
+          </div>
+          <div class="wrapper">
+            <mat-form-field>
+              <mat-label>Gender</mat-label>
+              <select name="gender" matInput formControlName="gender">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="freedom fighter">Freedom Fighter</option>
+              </select>
+            </mat-form-field>
+          </div> 
+      </div>
+
+      <div class="holder">
+        <div class="wrapper">
+          <mat-form-field>
+            <mat-label>Salary</mat-label>
+            <input
+            type="number"
+            name="salary"
+            formControlName="salary" 
+            matInput
+            />
+          </mat-form-field>
+        </div>
+        <div class="wrapper">
+          <mat-form-field>
+            <mat-label>House Rent</mat-label>
+            <input
+            type="number"
+            name="houserent"
+            formControlName="houserent" 
+            matInput
+            />
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="holder">
+        <div class="wrapper">
+            <mat-form-field>
+              <mat-label>Festival Bonus</mat-label>
+              <input
+              type="number"
+              name="festival"
+              formControlName="festivalbonus" 
+              matInput
+              />
+            </mat-form-field>
+          </div>
+          <div class="wrapper">
+            <mat-form-field>
+              <mat-label>Investment</mat-label>
+              <input
+              type="number"
+              name="investment"
+              formControlName="investment" 
+              matInput
+              />
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="holder">
+          <div class="wrapper">
+            <mat-form-field>
+            <mat-label>Source Tax Deducted</mat-label>
+            <input
+            type="number"
+            name="sourcetax"
+            formControlName="sourcetax" 
+            matInput
+            />
+          </mat-form-field>
+
+        </div>
+        </div>
+
+      <div class="btn-container">
+         
+        <app-button
+        [label]="buttonLabel"
+        [color]="buttonColor" 
+        [type]="buttonType"
+        ></app-button><br>
+       
+      </div>
+    
+  </form>
+  </div>
+  </div> -->
+  <h3>Submit Return </h3>
+
+  <p style="color: green;text-align: center;" *ngIf="thisYearSubmitted">You already submitted return successfully for this year. Please proceed to <a routerLink = "../payment" > Payment </a></p>
+
+  <form class="example-form" [formGroup]="returnForm" #formDir="ngForm" (ngSubmit)="returnSubmit()">
+    
+  
+    <table class="example-full-width" cellspacing="0"><tr>
+      <td>
+        <mat-form-field class="example-full-width">
+          <mat-label>TIN</mat-label>
+          <input matInput formControlName="tin">
+        </mat-form-field>
+      </td>
+      <td>
+        <!-- <mat-label>Select Assesment Year</mat-label>
+        <select name="assessmentYear"  formControlName="assessmentYear" matInput>
+          <option value="2022-2023">2022-2023</option>
+          <option value="2021-2022">2021-2022</option>
+          <option value="2020-2021">2021-2022</option>
+        </select> -->
+        <mat-form-field appearance="fill" matInput class="example-full-width">
+          <mat-label>Select Assesment Year</mat-label>
+          <select matNativeControl required formControlName="assessmentYear" >
+            <option value="2023-2024">2023-2024</option> 
+            <option value="2022-2023">2022-2023</option>
+            <option value="2021-2022">2021-2022</option>
+            <option value="2020-2021">2021-2022</option>
+          </select>
+        </mat-form-field>
+      </td>
+      <td><mat-form-field appearance="fill" matInput class="example-full-width">
+        <mat-label>Gender</mat-label>
+        <select matNativeControl required formControlName="gender" >
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="freedom fighter">Freedom Fighter</option>
+        </select>
+      </mat-form-field></td>
+    </tr></table>
+
+  
+    <table class="example-full-width" cellspacing="0"><tr>
+      <td><mat-form-field class="example-full-width">
+        <mat-label>Salary</mat-label>
+        <input matInput  formControlName="salary" type="number"  placeholder="Salary">
+      </mat-form-field></td>
+      <td><mat-form-field class="example-full-width">
+        <mat-label>House Rent</mat-label>
+        <input matInput formControlName="houseRent" type="number" placeholder="Festival Bonus">
+      </mat-form-field></td>
+      <td><mat-form-field class="example-full-width">
+        <mat-label>Festival Bonus</mat-label>
+        <input matInput  type="number" formControlName="festivalBonus">
+      </mat-form-field></td>
+    </tr></table>
+
+    <table class="example-full-width" cellspacing="0"><tr>
+      <td><mat-form-field class="example-full-width">
+        <mat-label>Source Tax</mat-label>
+        <input matInput type="number" formControlName="sourceTax"  placeholder="Source Tax">
+      </mat-form-field></td>
+      <td><mat-form-field class="example-full-width">
+        <mat-label>Investment</mat-label>
+        <input matInput type="number" maxlength="5" formControlName="investment">
+      </mat-form-field></td>
+      <td><mat-form-field class="example-full-width">
+        <mat-label>Payable Amount</mat-label>
+        <input matInput type="number" formControlName="amount" value="0.0">
+      </mat-form-field></td>
+    </tr></table>
+    <table class="example-full-width" cellSpacing="0">
+      <tr style="margin-bottom:12px;height:30px;">
+        <td>
+        <p style="color: green;" *ngIf="success">{{successMsg}}</p>
+        <p style="color: green;" *ngIf="goSuccess">Return submitted successfully. Please proceed to <a routerLink = "../../payment"> Payment </a></p>
+
+        </td>
+      </tr>
+    </table>
+    <table class="example-full-width" cellspacing="0">
+     
+      <tr class="clear:both;">
+      <td><app-button
+        [label]="buttonLabel"
+        [color]="buttonColor" 
+        [type]="buttonType"
+        ></app-button></td>
+      <td>  <app-button
+        [label]="buttonLabel1"
+        [color]="buttonColor1" 
+        [type]="buttonType1"
+        (click)="calculate()"
+        ></app-button></td>
+    </tr></table>
+  </form>

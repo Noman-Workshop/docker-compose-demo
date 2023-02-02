@@ -1,0 +1,58 @@
+<div *ngIf="failed" style="text-align: center; margin-top: 50px;">
+    <p style="color:red;">Data Couldn't be loaded</p>
+</div>
+<table mat-table [dataSource]="tUsers" class="mat-elevation-z8" *ngIf="success">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+  
+    <!-- Position Column -->
+    <ng-container matColumnDef="uuid">
+      <th mat-header-cell *matHeaderCellDef> UUID </th>
+      <td mat-cell *matCellDef="let element"> {{element.uuid}} </td>
+    </ng-container>
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="username">
+      <th mat-header-cell *matHeaderCellDef> User Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.username}} </td>
+    </ng-container>
+  
+    <!-- Weight Column -->
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef> Email </th>
+      <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+    </ng-container>
+  
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="role">
+      <th mat-header-cell *matHeaderCellDef> Role </th>
+      <td mat-cell *matCellDef="let element"> {{element.roles}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="tin">
+        <th mat-header-cell *matHeaderCellDef> TIN </th>
+        <td mat-cell *matCellDef="let element"> {{element.tin}} </td>
+      </ng-container>
+
+
+      <ng-container matColumnDef="zone">
+        <th mat-header-cell *matHeaderCellDef> Zone  </th>
+        <td mat-cell *matCellDef="let element"> {{element.zone}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="circle">
+        <th mat-header-cell *matHeaderCellDef> Circle  </th>
+        <td mat-cell *matCellDef="let element"> {{element.circle}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="dob">
+        <th mat-header-cell *matHeaderCellDef> Date of Birth  </th>
+        <td mat-cell *matCellDef="let element"> {{element.dob | date}} </td>
+      </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  
+  

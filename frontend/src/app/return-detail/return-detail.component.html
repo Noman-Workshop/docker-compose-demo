@@ -1,0 +1,18 @@
+
+<div class="alternateContainer" *ngIf="failed">
+    <h3 style="text-align: center;margin-top: 50px;height:400px;">Return data couldn't be loaded. Please try again</h3>
+</div>
+<div class="container" *ngIf="success">
+    <img src="../../assets/img/logobd.png" class="logo" alt="bdlogo" width="70px" height="70px"/>
+    <h2>Government of the people's republic of Bangladesh</h2>
+    <h3>National Board of Revenue</h3>
+
+    <div class="returnDetails">
+        <h4 class="first">TIN: </h4> <h4 class="second">{{returns.tinNo}}</h4>
+        <p class="first">Amount Paid:</p><p class="second"> {{returns.amount}}</p>
+        <p class="first">assessment Year</p><p class="second"> {{returns.assessmentYear}}</p>
+        <p class="first">Payment Method:</p><p class="second"> {{returns.getway}}</p>
+        <p class="first">Mobile No: </p><p class="second">{{returns.mobile}}</p>
+        <p class="first">Time of Payment: </p><p class="second">{{returns.created_at | date}}</p>
+    </div>
+</div>

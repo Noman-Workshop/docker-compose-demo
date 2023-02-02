@@ -1,0 +1,12 @@
+.example-spacer {
+    flex: 1 1 auto;
+  }
+  mat-toolbar>button{
+    float: right;
+  }
+  app-main-menu{
+    width: 80%
+  }
+  .menu-title-holder{
+    width: 20%;
+  }

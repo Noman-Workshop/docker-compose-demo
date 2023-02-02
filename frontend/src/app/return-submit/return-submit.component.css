@@ -1,0 +1,23 @@
+.example-form {
+ 
+    width: 60%;
+    margin-left: 20%;
+    float: left;
+    margin-top: 30px;
+}
+h3{
+  text-align: center;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+td {
+  padding-right: 8px;
+}
+
+app-button{
+  margin-left: 40%;
+  margin-bottom: 200px;
+}

@@ -1,0 +1,142 @@
+
+
+    <!-- <div class="clear"></div> -->
+    <div class="login-container">
+        <div class="logo">NBR LOGIN</div>
+    
+        <div class="login-form">
+            <form class="example-form" [formGroup]="signUpForm" #formDir="ngForm" (ngSubmit)="signup()">
+                
+                <div class="holder">
+                    <div class="wrapper">
+                        <mat-form-field>
+                            <mat-label>Username</mat-label>
+                            <input
+                            type="text"
+                            name="username"
+                            formControlName="username"
+                            matInput
+                            />
+                        </mat-form-field>
+                        <span *ngIf="signUpForm.get('username')?.errors?.['minlength']" style="color:red">Username must contain 4 characters</span>
+                    </div>
+                    <div class="wrapper">
+                      <mat-form-field class="">
+                        <mat-label>TIN</mat-label>
+                        <input
+                        type="number"
+                        name="tin"
+                        formControlName="tin"
+                        matInput
+                        />
+                      </mat-form-field>
+                      <span *ngIf="signUpForm.get('tin')?.errors?.['minlength']" style="color:red">Username must contain 12 characters</span>
+
+                    </div>
+                </div>
+                <div class="holder">
+                    <div class="wrapper">
+                        <mat-form-field class="">
+                            <mat-label>Password</mat-label>
+                            <input
+                            type="password"
+                            name="password"
+                            formControlName="password"
+                            matInput
+                            />
+                        </mat-form-field>
+                        <span *ngIf="signUpForm.get('password')?.errors?.['minlength']" style="color:red">password must contain 4 characters</span>
+
+                    </div>
+                    <div class="wrapper">
+
+                        <mat-form-field class="">
+                        <mat-label>Confirm Password</mat-label>
+                        <input
+                        type="password"
+                        name="cpassword"
+                        formControlName="cpassword"
+                        matInput
+                        />
+                        </mat-form-field>
+                        <span *ngIf="signUpForm.get('cpassword')?.errors?.['minlength']" style="color:red">password must contain 4 characters</span>
+
+                    </div>
+                </div>
+                <div class="holder">
+                    <div class="wrapper">    
+                        <mat-form-field class="">
+                            <mat-label>Email</mat-label>
+                            <input
+                            type="email"
+                            name="email"
+                            formControlName="email"
+                            matInput
+                            />
+                          </mat-form-field>
+                          <span *ngIf="signUpForm.controls.email?.errors?.['email']" style="color:red">Email Format invalid</span>
+
+                    </div>
+                    <div class="wrapper">    
+                          <mat-form-field class="">
+                            <mat-label>Zone</mat-label>
+                            <input
+                            type="text"
+                            name="zone"
+                            formControlName="zone"
+                            matInput
+                            />
+                          </mat-form-field>
+                          <span *ngIf="formDir.submitted && signUpForm.controls.zone?.errors?.['required']" style="color:red">Zone is required</span>
+
+                    </div>
+                </div>
+               
+                <div class="holder">
+                    <div class="wrapper">    
+ 
+                        <mat-form-field class="">
+                        <mat-label>Circle</mat-label>
+                        <input
+                        type="text"
+                        name="circle"
+                        formControlName="circle"
+                        matInput
+                        />
+                      </mat-form-field>
+                      <span *ngIf="formDir.submitted && signUpForm.controls.circle?.errors?.['required']" style="color:red">Circle is required</span>
+
+                    </div>
+                    <div class="wrapper">    
+    
+                      <mat-form-field class="">
+                        <mat-label>Date of Birth</mat-label>
+                        <input
+                        type="date"
+                        name="dob"
+                        formControlName="dob"
+                        matInput
+                        />
+                      </mat-form-field>
+                      <span *ngIf="formDir.submitted && signUpForm.controls.dob?.errors?.['required']" style="color:red">DOB is required</span>
+
+                    </div>
+                </div>
+                    <div class="btn-container">
+                        <div class="error">{{ errorMsg }}</div>
+                        <app-button
+                        [label]="buttonLabel"
+                        [color]="buttonColor" 
+                        [type]="buttonType"
+                        (click)="signup()"
+                        style="margin: -9% 5% 5% 35%;"
+                        ></app-button>
+                        <mat-spinner *ngIf="showSpinner" style="width:50px;height:50px;display: inline-block;"></mat-spinner>
+                    </div>
+                   
+
+                    <span style="color:green;font-weight: 600;margin-left: 14%;" *ngIf="successShow">{{successMsg}}</span>
+                </form>
+              
+        </div>
+    </div>

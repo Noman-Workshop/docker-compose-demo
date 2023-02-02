@@ -1,0 +1,16 @@
+.container{
+    text-align: center;
+    width: 60%;
+    margin-left: 20%;
+    margin-top:80px;
+    margin-bottom:20px;
+}
+
+.first {
+    width: 40%;
+    display: inline-block;
+}
+.second {
+    width: 40%;
+    display: inline-block;
+}

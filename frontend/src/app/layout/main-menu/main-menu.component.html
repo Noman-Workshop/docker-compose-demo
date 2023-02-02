@@ -1,0 +1,21 @@
+<div class="menu-button">
+    <a routerLink = "home">
+        <button mat-button>
+            Home
+        </button>
+     </a>
+    <a routerLink = "about">
+        <button mat-button>
+            About
+        </button>
+     </a>
+     <a routerLink = "contact">
+        <button mat-button>
+            Contact Us
+        </button>
+     </a>
+    <app-admin-menu *ngIf="!showUserMenu&&!showlogIn"></app-admin-menu>
+    <app-taxpayer-menu *ngIf="showUserMenu&&!showlogIn"></app-taxpayer-menu>
+    <app-login-signup-menu *ngIf="showlogIn"></app-login-signup-menu>
+    <app-logout-menu *ngIf="!showlogIn"></app-logout-menu>
+   </div>

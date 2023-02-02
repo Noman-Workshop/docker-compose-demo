@@ -1,0 +1,24 @@
+* Notes:
+** Objective:
+*** Database Server: MSSQL-2019:latest
+*** Database Name: Tax
+*** User: nbr, Password: nbr@Tax123
+
+* Steps:
+** Select a base image:
+*** FROM: mcr.microsoft.com/mssql/server
+** Create a configuration directory
+***  RUN mkdir -p /usr/config
+** Copy the configuration files
+*** COPY . /usr/config
+** Wte a bash script:
+*** Start the mssql database
+*** wait for 10s
+*** sqlcmd -q init.sql
+** Create a tax database with sql file:
+*** Create an sql file for initialization
+**** create database tax
+**** create login nbr with password
+**** grant previleges to the user
+** Define the custom entry point
+*** ENTRYPOINT 

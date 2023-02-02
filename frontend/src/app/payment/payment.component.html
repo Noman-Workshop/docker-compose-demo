@@ -1,0 +1,79 @@
+<h3>Payment</h3>
+<p *ngIf="!thisYearSubmitted">You haven't submitted return of this year yet. Please submit first then visit this page again.</p>
+
+<form class="example-form" [formGroup]="paymentForm" #formDir="ngForm" (ngSubmit)="paymentSubmit()">    
+    <table class="example-full-width" cellspacing="0"><tr>
+      <td>
+        <mat-form-field class="example-full-width">
+          <mat-label>TIN</mat-label>
+          <input matInput formControlName="tinNo">
+        </mat-form-field>
+      </td>
+      <td>
+      <td>
+        <mat-form-field class="example-full-width">
+          <mat-label>Amount</mat-label>
+          <input matInput formControlName="amount">
+          <span matTextPrefix>৳&nbsp;</span>
+          <span matTextSuffix>.00</span>
+        </mat-form-field>
+      </td>
+    </tr>
+    </table>
+    <table class="example-full-width" cellspacing="0"><tr>
+      <td>
+        <mat-form-field appearance="fill" matInput class="example-full-width">
+          <mat-label>Select Assesment Year</mat-label>
+          <select matNativeControl required formControlName="assessmentYear" >
+            <option value="2023-2024">2023-2024</option> 
+            <option value="2022-2023">2022-2023</option>
+            <option value="2021-2022">2021-2022</option>
+            <option value="2020-2021">2021-2022</option>
+          </select>
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field appearance="fill" matInput class="example-full-width">
+          <mat-label>Select Payment Method</mat-label>
+          <select matNativeControl required formControlName="getway" >
+            <option value="bKash">bKash</option> 
+            <option value="Nagad">Nagad</option>
+            <option value="Upay">Upay</option>
+            <option value="Tap">Tap</option>
+          </select>
+        </mat-form-field>
+      </td>
+    </tr>
+    </table>
+    <table class="example-full-width" cellspacing="0">
+      <tr>
+        <td>
+          <mat-form-field class="example-full-width">
+            <mat-label>Mobile No</mat-label>
+            <span matPrefix>+88 &nbsp;</span>
+            <input matInput formControlName="mobile">
+          </mat-form-field>
+        </td>
+        <td>
+        <mat-form-field class="example-full-width">
+            <mat-label>PIN</mat-label>
+            <input matInput formControlName="pin" type="password">
+        </mat-form-field>
+        </td>
+      </tr>
+    </table>
+    <table class="example-full-width" cellspacing="0">
+        <tr class="clear:both;">
+        <app-button style="margin-left:30vh;"
+          [label]="buttonLabel"
+          [color]="buttonColor" 
+          [type]="buttonType"
+          [disabled]="!thisYearSubmitted"
+          ></app-button>
+        </tr>
+    </table>
+    <p *ngIf="paymentSuccess">Payment has been paid successfully. Your return has been finally submitted</p>
+    <p *ngIf="paymentFailed" style="color:red;">Payment has been failed. Please try again later</p>
+
+  </form>
+  

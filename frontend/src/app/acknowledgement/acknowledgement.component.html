@@ -1,0 +1,35 @@
+<div class="alternateContainer" *ngIf="failed">
+    <h3 style="text-align: center;margin-top: 50px;height:400px;">Return data couldn't be loaded. Please try again</h3>
+</div>
+<div class="container" *ngIf="success">
+    <img src="../../assets/img/logobd.png" class="logo" alt="bdlogo" width="70px" height="70px"/>
+    <h2><b>Government of the people's republic of Bangladesh</b></h2>
+    <h3><b>National Board of Revenue</b></h3>
+
+    <div class="ackDetails" *ngIf="acknowledgmentFlag">
+        <h3 style="text-align:center;color: blue;"><b>Acknowledgment Slip</b></h3>
+        <h4 class="first">TIN: </h4> <h4 class="second">{{acknowledgement.tinNo}}</h4>
+        <p class="first">Amount Paid:</p><p class="second"> {{acknowledgement.amount}}</p>
+        <p class="first">assessment Year</p><p class="second"> {{acknowledgement.assessmentYear}}</p>
+        <p class="first">Payment Method:</p><p class="second"> {{acknowledgement.getway}}</p>
+        <p class="first">Mobile No: </p><p class="second">{{acknowledgement.mobile}}</p>
+        <p class="first">Time of Payment: </p><p class="second">{{acknowledgement.created_at | date}}</p>
+        <qrcode [qrdata]="myAngularxQrCode" [width]="256" [errorCorrectionLevel]="'M'"></qrcode>
+
+    </div>
+
+    <div class="returnDetails" *ngIf="!acknowledgmentFlag">
+        <h3 style="text-align:center;color: blue;"><b>Submitted Return</b></h3>
+
+        <h4 class="first">TIN: </h4> <h4 class="second">{{submittedData.tin}}</h4>
+        <p class="first">Assessment Year:</p><p class="second"> {{submittedData.assessmentYear}}</p>
+        <p class="first">Gender:</p><p class="second"> {{submittedData.gender}}</p>
+        <p class="first">Salary</p><p class="second"> {{submittedData.salary}}</p>
+        <p class="first">House Rent</p><p class="second"> {{submittedData.houseRent}}</p>
+        <p class="first">Festival Bonus </p><p class="second">{{submittedData.festivalBonus}}</p>
+        <p class="first">Investment: </p><p class="second">{{submittedData.investment}}</p>
+        <p class="first">Source Tax: </p><p class="second">{{submittedData.sourceTax}}</p>
+        <p class="first">Amounts Paid: </p><p class="second">{{submittedData.amount}}</p>
+
+    </div>
+</div>

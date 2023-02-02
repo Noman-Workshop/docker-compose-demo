@@ -1,0 +1,18 @@
+h3 {
+    text-align: center;
+}
+
+.profile{
+    margin-top: 40px;
+    height: 64vh;
+    text-align: center;
+}
+
+.example-form-field {
+    width: 200px;
+  }
+
+  .example-additional-selection {
+    opacity: 0.75;
+    font-size: 0.75em;
+  }
