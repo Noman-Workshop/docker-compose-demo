@@ -15,14 +15,14 @@ services:
   backend:
     build: ./backend
     ports:
-      - 8080:8080
+      - 8080
     depends_on:
       - db
     networks:
       - tax-network
-    # create min 2 instances of backend service
-    # deploy:
-    #   replicas: 3
+    # create min 3 instances of backend service
+    deploy:
+      replicas: 3
     
   db:
     build: ./db
@@ -50,16 +50,16 @@ services:
   #   networks:
   #     - tax-network
 
-  # proxy:
-  #   image: nginx:alpine
-  #   ports:
-  #     - 80:80
-  #   volumes:
-  #     - ./proxy:/etc/nginx/conf.d
-  #   depends_on:
-  #     - backend
-  #   networks:
-  #     - tax-network
+  proxy:
+    image: nginx:alpine
+    ports:
+      - 80:80
+    volumes:
+      - ./proxy:/etc/nginx/conf.d
+    depends_on:
+      - backend
+    networks:
+      - tax-network
     
 networks:
   tax-network:
