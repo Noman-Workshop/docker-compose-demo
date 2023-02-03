@@ -4,7 +4,9 @@ pipeline {
 	stages {
 		stage('Build') {
 			steps {
-				sh 'echo "Building 1..."'
+				sh '''
+					docker compose build --no-cache --force-rm --pull --parallel
+				'''
 			}
 		}
 		stage('Test') {
