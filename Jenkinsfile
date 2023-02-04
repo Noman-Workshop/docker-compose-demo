@@ -5,7 +5,7 @@ pipeline {
 		stage('Build') {
 			steps {
 				sh '''
-					docker compose build -p nbr --no-cache --force-rm
+					docker compose build --no-cache --force-rm
 				'''
 			}
 		}
