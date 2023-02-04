@@ -5,7 +5,7 @@ pipeline {
 		stage('Build') {
 			steps {
 				sh '''
-					echo "Building3....."
+					docker compose build -p nbr --no-cache --force-rm
 				'''
 			}
 		}
@@ -13,7 +13,6 @@ pipeline {
 			steps {
 				sh '''
 					echo "Testing3...";
-					exit 1;
 				'''
 			}
 		}
